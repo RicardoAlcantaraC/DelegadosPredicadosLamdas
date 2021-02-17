@@ -14,7 +14,7 @@ namespace DelegadosPredicadosLamdas
 
             miDelegado = new ObjetoDelegado(MensajeDespedida.SaludoDespedida);
 
-            miDelegado("Hola, ya me voy!!");
+            miDelegado("Hola, ya me voy!");
         }
 
         //Definicion del objeto delegado
