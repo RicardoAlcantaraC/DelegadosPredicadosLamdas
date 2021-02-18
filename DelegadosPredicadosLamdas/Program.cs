@@ -36,10 +36,17 @@ namespace DelegadosPredicadosLamdas
         static void ejemploDelegadoPredicado()
         {
             List<int> listaNumeros = new List<int>();
-            listaNumeros.AddRange(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+            Console.WriteLine("¿Hasta que numero desea saber los numeros primos?");
+            int limite = int.Parse(Console.ReadLine());
 
+            for (int i = 1; i <= limite; i++)
+            {
+                listaNumeros.Add(i);
+            }
+
+           
             //declaramos delegado predicado
-            Predicate<int> miDelPredicado = new Predicate<int>(damePares);
+            Predicate<int> miDelPredicado = new Predicate<int>(dameNumerosPrimos);
 
             List<int> numPares = listaNumeros.FindAll(miDelPredicado);
 
@@ -49,16 +56,30 @@ namespace DelegadosPredicadosLamdas
             }
         }
 
-        static bool damePares(int num)
+        static bool dameNumerosPrimos(int dividendo)
         {
-            if (num % 2 == 0)
+            
+            int modulo=0, totalDivisores=0, divisor=1;
+                      
+            for (divisor = 1; divisor <= dividendo  ; divisor++)
             {
-                return true;
+                modulo = dividendo % divisor;
+
+                if (modulo == 0)
+                totalDivisores++;
+                
             }
-            else
-            {
-                return false;
+
+            if (totalDivisores == 2) 
+            { 
+                return true; 
             }
+            else return false;
+
+           
+            
+
+
         }
 
 
